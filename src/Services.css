@@ -1,42 +1,57 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  .Services {
-    position: relative;
-    background-image: url('/public/assets/pexels-fauxels-3183171.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 40vh;
-    display: flex;
-    align-items: flex-end;       
-    justify-content: flex-end;  
-    padding: 30px;
-  }
-  
-  .Services h1 {
-    font-size: 40px;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-  }
-  .services-section{
-    padding: 60px 40px;
-    background-color: #ffffff;
-    text-align: center;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .services-title {
-    font-size: 26px;
-    font-weight: 600;
-    color: #222;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Services {
+  position: relative;
+  background-image: url('/public/assets/pexels-fauxels-3183171.jpg');
+  background-repeat: no-repeat;            /* إضافة خصائص التكرار */
+  background-position: center center;      /* تحديد المركز للصورة */
+  background-size: cover;                  /* تغطي كامل المساحة */
+  background-attachment: scroll;           /* تثبيت الصورة عند التمرير */
+  height: 40vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.Services {
+  position: relative;
+  background-image: url('/public/assets/pexels-fauxels-3183171.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  display: flex;
+  align-items: flex-end;       
+  justify-content: flex-end;  
+  padding: 30px;
+}
+
+.Services h1 {
+  font-size: 40px;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+.services-section{
+  padding: 60px 40px;
+  background-color: #ffffff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.services-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
   .services-section .subtitle {
     color: #888;
     font-size:30px;

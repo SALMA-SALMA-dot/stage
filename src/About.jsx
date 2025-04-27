@@ -29,7 +29,7 @@ export default function About() {
     <div>
       <div className="banner">
         <video autoPlay loop muted className="background-video">
-          <source src="/assets/7438232-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+          <source src="/assets/" type="video/mp4" />
         </video>
         <div className="content">
           <h1>Servitium</h1>

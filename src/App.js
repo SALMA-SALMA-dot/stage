@@ -4,8 +4,7 @@ import Acceuil from "./Acceuil";
 import Menu from "./Menu";
 import About from "./About";  
 import Services from "./Services";  
-import Packs from "./Packs";  
-import News from "./News";  
+import Packs from "./Packs";    
 import Contact from "./Contact";  
 import Footer from "./Footer";
 
@@ -21,7 +20,6 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/packs" element={<Packs />} />
-        <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
 

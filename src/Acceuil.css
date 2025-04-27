@@ -7,7 +7,7 @@
 
 :root {
   --color-white: #fff;
-  --color-blue: rgb(24, 214, 214);
+  --color:#0091D4;
   --color-black: black;
   --font-test: "Montserrat", sans-serif;
 }
@@ -36,7 +36,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: black;
+ 
   padding: 10px 20px;
   color: white;
 }
@@ -46,7 +46,7 @@ body {
 }
 
 .phone strong {
-  color: rgb(24, 214, 214);
+  color:#0091D4;
 }
 
 /* Liens du menu */
@@ -71,7 +71,7 @@ body {
 
 .nav-links a.active,
 .nav-links a:hover {
-  background:rgb(24, 214, 214) ;
+  background:#0091D4 ;
   border-radius: 5px;
 }
 .search-container {
@@ -89,8 +89,8 @@ body {
   outline: none;
 }
 .search-input:focus {
-  border-color: var(--color-blue);
-  box-shadow: 0 0 4px var(--color-blue);
+  border-color: #0091D4;
+  box-shadow: 0 0 4px #0091D4;
 }
 
 /* Animation pour la section Acceuil */
@@ -104,40 +104,57 @@ body {
     opacity: 1;
   }
 }
-
-/* Section Acceuil avec animation */
 .Acceuil {
-  flex-grow: 1;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.background-swiper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.background-slide {
+  width: 100%;
+  height: 100%;
   background-size: cover;
-  background-position: center;
-  text-align: center;
-  color: var(--color-black);
+  background-position: center top; /* تصحيح صغير: 'center top' باش تبقى مرتبة أكثر */
+  background-repeat: no-repeat; /* زيدها باش ماتعاودش الصورة */
+}
+
+.Acceuil-overlay {
+  position: relative;
+  z-index: 2;
+  color: white;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* خلفية شفافة خفيفة فوق الصورة */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  animation: leftToRight 1.5s ease-out forwards;
-  background-image: url('/public/assets/test.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-
+  text-align: center;
+  padding: 20px;
 }
 
 .Acceuil h1 {
   font-size: 50px;
   font-family: var(--font-test);
   font-weight: 500;
-  margin: 0;
-  display: block;
+  margin: 0 0 20px 0; /* صافي كفى غير وحدة */
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  margin-bottom: 20px;
-  z-index: 2;
   animation: leftToRight 1.5s ease-out forwards;
 }
-.Acceuil-sp{
-  color: var(--color-blue);
+
+.Acceuil-sp {
+  color: #0091D4;
   font-weight: bold;
 }
 
@@ -145,48 +162,46 @@ body {
   font-size: 20px;
   font-family: var(--font-test);
   font-weight: 500;
-  margin: 0;
-  display: block;
+  margin: 20px 0 0 0; /* نفس الشي: ترتيب المارجن */
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  margin-top: 20px;
-  margin-bottom: 0;
-  z-index: 0;
   animation: leftToRight 2s ease-out forwards;
 }
-.Acceuil-span{
-  color: var(--color-blue);
+
+.Acceuil-span {
+  color: #0091D4;
   font-weight: bold;
 }
 
 .Acceuil button {
-  background-color: var(--color-blue);
-  color: var(--color-black);
+  background-color: #0091D4;
+  color: white;
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;
-  z-index: 1;
+  z-index: 2; /* خليتو 2 باش يطلع مزيان فوق الخلفية */
   transition: all 0.3s ease;
+  margin-top: 20px; /* زيدتها باش مايلصقش فالنص */
 }
 
 /* Effet de survol du bouton */
 .Acceuil button:hover {
-  background-color: #1ab2b2;
+  background-color: #007bb5; /* بدل لون Hover شوية باش تبان الحركة */
   transform: translateY(-3px);
 }
 
 /* Section Acceuil-1 */
 .Acceuil-1 {
-  background-color: var(--color-blue);
+  background-color: #0091D4;
   color: var(--color-black);
   padding: 20px;
   border-radius: 10px;
   width: 80%;
-  margin: 20px auto;
+  margin: 40px auto 20px auto; /* خليت شوية مسافة فوق */
   text-align: center;
-  box-shadow: 0px 4px 10px rgb(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   animation: leftToRight 1s ease-out forwards;
 }
@@ -199,7 +214,7 @@ body {
   transform: translateX(-50%);
   border-width: 20px;
   border-style: solid;
-  border-color: #050a10 transparent transparent transparent;
+  border-color: #0091D4 transparent transparent transparent; /* خاص اللون يطابق لون صندوق Acceuil-1 */
 }
 
 .buttons {
@@ -285,7 +300,7 @@ body {
   
 }
 .service-icon:hover{
-  background-color: rgb(24, 214, 214);
+  background-color:#0091D4;
 }
 
 
@@ -326,7 +341,7 @@ body {
 
 /* إبراز النصوص */
 .highlight {
-  color: var(--color-blue);
+  color: #0091D4;
   font-weight: bold;
 }
 
@@ -353,7 +368,7 @@ body {
 
 /* زر الخدمات */
 .services-btn {
-  background-color: #00ffff; /* أزرق فاتح */
+  background-color: #0091D4; 
   color: black;
   padding: 12px 25px;
   border: none;
@@ -482,12 +497,12 @@ body {
     transform: translate(-50%, -50%);
     font-size: 36px;
     font-weight: bold;
-    color: rgb(24, 214, 214); 
+    color: #0091D4; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
     z-index: 1;
     display: inline-block; 
     padding: 10px 20px; 
-    border: 3px solid rgb(24, 214, 214);
+    border: 3px solid #0091D4;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.4); 
   }
@@ -506,11 +521,11 @@ body {
 .service-text h1 {
   font-size: 32px;
   font-weight: bold;
-  color: #333;
+  color:black;
   margin-bottom: 20px;
 }
 .service-text span{
-  color: var(--color-blue);
+  color: #0091D4;
   font-weight: bold;
 }
 
@@ -574,16 +589,17 @@ body {
 }
 
 .card:nth-child(1) {
-  background-color: rgb(24, 214, 214);
+  background-color: #0091D4;
   
 }
 .card:nth-child(2) {
-  background-color: rgb(24, 214, 214); 
+  background-color:#0091D4; 
 }
 
 .card:nth-child(3) {
-  background-color: rgb(24, 214, 214); 
+  background-color: #0091D4; 
 }
+
 /* تحديث الكلاسات في الـ CSS */
 .cta-wrapper {
   text-align: center;
@@ -606,25 +622,25 @@ body {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  border: 2px solid rgb(24, 214, 214);
-  color: rgb(24, 214, 214);
+  border: 2px solid #0091D4;
+  color:#0091D4;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
 }
 @media screen and (max-width: 768px) {
+
   .cards-container {
     flex-direction: column;
     align-items: center;
   }
-
   .card {
     width: 80%;
     margin-bottom: 20px;
   }
 }
 .testimonials-section {
-  background:white ;
+  background:#0091D4 ;
   padding: 50px 20px;
   color: black;
   text-align: center;
@@ -644,7 +660,7 @@ body {
 }
 
 .testimonial-card {
-  background-color: white;
+  background-color: rgb(72, 158, 219);
   padding: 20px;
   max-width: 300px;
   border-radius: 8px;
@@ -668,6 +684,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+  
 
 
 
@@ -817,6 +834,10 @@ body {
     font-size: 36px;
   }
 }
+ 
+ 
+ 
+
 
 
 

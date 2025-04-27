@@ -1,38 +1,38 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import { Link } from 'react-router-dom';
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Acceuil.css";
 
-const testimonials = [
-  {
-    name: "Jimmy Ferrara",
-    title: "General Manager",
-    text: "Credibly innovate granular internal or 'organic' sources whereas high standards in web readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with.",
-    stars: 5,
-    image: "/assets/images (21).jpg",
-  },
-  {
-    name: "Perry Andrews",
-    title: "SWIFT Inc.",
-    text: "Credibly innovate granular internal or 'organic' sources whereas high standards in web readiness.",
-    stars: 5,
-    image: "/assets/images5.jpg",
-  },
-  {
-    name: "Sammy Browns",
-    title: "CFO, Perfect Inc.",
-    text: "Credibly innovate granular internal or 'organic' sources whereas high standards in web readiness.",
-    stars: 5,
-    image: "https://via.placeholder.com/100",
-  },
-];
-
-// Composant Testimonials
+// Testimonials Component
 export const Testimonials = () => {
+  const testimonials = [
+    {
+      name: "Jimmy Ferrara",
+      title: "General Manager",
+      text: "Credibly innovate granular internal or 'organic' sources whereas high standards in web readiness.",
+      stars: 5,
+      image: "/assets/images (21).jpg",
+    },
+    {
+      name: "Perry Andrews",
+      title: "SWIFT Inc.",
+      text: "Credibly innovate granular internal or 'organic' sources whereas high standards in web readiness.",
+      stars: 5,
+      image: "/assets/images5.jpg",
+    },
+    {
+      name: "Sammy Browns",
+      title: "CFO, Perfect Inc.",
+      text: "Credibly innovate granular internal or 'organic' sources whereas high standards in web readiness.",
+      stars: 5,
+      image: "https://via.placeholder.com/100",
+    },
+  ];
+
   return (
     <section className="testimonials-section">
       <h2>REVUES & TÉMOIGNAGES</h2>
@@ -55,7 +55,11 @@ export const Testimonials = () => {
                 <div>
                   <h4>{t.name.toUpperCase()}</h4>
                   <p>{t.title}</p>
-                  <div>{"★".repeat(t.stars)}</div>
+                  <div className="testimonial-stars">
+                    {Array.from({ length: t.stars }).map((_, idx) => (
+                      <span key={idx}>★</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -66,13 +70,13 @@ export const Testimonials = () => {
   );
 };
 
-// Composant Cards
+// Cards Component
 export function Cards() {
   return (
     <div className="cards-container">
       <div className="card">
         <div className="card-icon">
-        <img src="/assets/devis-icon.svg" alt="Devis Icon" />
+          <img src="/assets/formation.jpg" alt="Devis Icon" />
         </div>
         <div className="card-content">
           <h3>Demander un Devis</h3>
@@ -101,11 +105,10 @@ export function Cards() {
   );
 }
 
-// Composant Acceuil
+// Main Component Acceuil
 export default function Acceuil() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Données des services
   const services = [
     {
       title: "Création d’entreprise",
@@ -127,22 +130,70 @@ export default function Acceuil() {
     },
   ];
 
-  // Filtrer les services en fonction du terme de recherche
   const filteredServices = services.filter((service) =>
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const slides = [
+    {
+      image: "/assets/formation.jpg",
+      title: "VOTRE ENTREPRISE",
+      subtitle: "CLÉ EN MAIN",
+      paragraph: "Concrétisez vos projets",
+      paragraphSpan: "au Maroc",
+    },
+    
+    {
+        image: "/assets/comptabilite.jpg",
+        title: "NOS SERVICES",
+        subtitle: "DE QUALITÉ",
+        paragraph: "Nous vous accompagnons",
+        paragraphSpan: "partout au Maroc",
+      },
+  
+    {
+      image: "/assets/pexels-thebstudio-947845.jpg",
+      title: "DÉVELOPPEZ VOTRE ACTIVITÉ",
+      subtitle: "AVEC NOUS",
+      paragraph: "Bâtissez votre avenir",
+      paragraphSpan: "en toute confiance",
+    },
+  ];
+
   return (
     <>
       <div className="Acceuil">
-        <h1>
-          VOTRE ENTREPRISE <br /> <span className="Acceuil-sp">CLÉ EN MAIN</span>
-        </h1>
-        <p>
-          Concrétisez vos projets <br />
-          <span className="Acceuil-span">au Maroc</span>
-        </p>
-        <Link to="/Packs"> <button className="main-btn">NOS DERNIÈRES OFFRES</button></Link> 
+        <Swiper
+          modules={[Pagination, Navigation, Autoplay]}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 5000 }}
+          pagination={{ clickable: false }}
+          className="background-swiper"
+        >
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="background-slide"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              >
+                <div className="Acceuil-overlay">
+                  <h1>
+                    {slide.title} <br />
+                    <span className="Acceuil-sp">{slide.subtitle}</span>
+                  </h1>
+                  <p>
+                    {slide.paragraph} <br />
+                    <span className="Acceuil-span">{slide.paragraphSpan}</span>
+                  </p>
+                  <Link to="/Packs">
+                    <button className="main-btn">NOS DERNIÈRES OFFRES</button>
+                  </Link>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       <div className="Acceuil-1">
@@ -155,8 +206,15 @@ export default function Acceuil() {
             hors charges de création.
           </p>
           <div className="buttons">
-          <a href=""> <button className="button-1">REJOIGNEZ NOTRE NEWSLETTER</button></a>
-          <Link to="/Packs"><button className="button-2">COMMANDER</button></Link>
+            <button
+              className="button-1"
+              onClick={() => window.location.href = '/newsletter'}
+            >
+              REJOIGNEZ NOTRE NEWSLETTER
+            </button>
+            <Link to="/Packs">
+              <button className="button-2">COMMANDER</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -167,7 +225,6 @@ export default function Acceuil() {
       </div>
 
       <div className="search-section">
-
         <Swiper
           modules={[Pagination]}
           spaceBetween={20}
@@ -207,9 +264,11 @@ export default function Acceuil() {
             <li>✔ FORMATION & SERVICES DIVERS</li>
           </ul>
 
-          <Link to="/Services"> <button className="services-btn" aria-label="Voir tous nos services"> 
-            Nos Services
-          </button></Link>
+          <Link to="/Services">
+            <button className="services-btn" aria-label="Voir tous nos services">
+              Nos Services
+            </button>
+          </Link>
         </div>
 
         <Swiper
@@ -269,33 +328,16 @@ export default function Acceuil() {
           </p>
         </div>
       </div>
+
       <Cards />
       <Testimonials />
-<div className="cta-wrapper">
-  <h2>Demandez Votre Devis 100% Gratuit !</h2>
-  <p>Nous vous répondons dans les 24 Heures !</p>
-  <a href="" className="cta-button">Votre Devis ICI !</a>
-</div>
 
-
+      <div className="cta-wrapper">
+        <h2>Demandez Votre Devis 100% Gratuit !</h2>
+        <p>Nous vous répondons dans les 24 Heures !</p>
+        <a href="#" className="cta-button">Votre Devis ICI !</a>
+      </div>
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

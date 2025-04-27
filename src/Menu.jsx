@@ -36,7 +36,6 @@ export default function Menu() {
             <li><Link to="/about" onClick={() => setIsOpen(false)}>A Propos de Servitium</Link></li>
             <li><Link to="/services" onClick={() => setIsOpen(false)}>Nos Services</Link></li>
             <li><Link to="/packs" onClick={() => setIsOpen(false)}>Nos Packs</Link></li>
-            <li><Link to="/news" onClick={() => setIsOpen(false)}>Actualités</Link></li>
             <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
           </ul>
         </div>

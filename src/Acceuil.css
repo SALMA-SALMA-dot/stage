@@ -13,9 +13,6 @@
 }
 
 body {
-  height: 70PX;
-  width: 100vw;
-
   font-family: var(--font-test);
   animation: leftToRight 1.5s ease-out forwards;
 }
@@ -32,18 +29,7 @@ body {
 
 /* Barre supérieure */
 /* Style global */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
- 
-  padding: 10px 20px;
-  color: white;
-}
 
-.navbar-left {
-  font-size: 14px;
-}
 
 .phone strong {
   color:#0091D4;

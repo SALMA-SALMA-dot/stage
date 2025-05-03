@@ -92,6 +92,60 @@ body {
   border-color: #0091D4;
   box-shadow: 0 0 4px #0091D4;
 }
+.custom-slide {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.custom-overlay {
+  margin-left: 5%;
+  color: #0091D4;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espace entre le texte et le bouton */
+}
+
+.custom-left-text {
+  
+  padding: 20px 30px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00AEEF;
+}
+
+.custom-left-text h2,
+.custom-left-text p {
+  margin: 0;
+  color:#00AEEF;
+}
+
+.custom-left-text strong {
+  color: #00AEEF;
+}
+
+.custom-button {
+  background-color: #00AEEF;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  font-weight: bold;
+  border-radius: 0 10px 10px 0;
+  transform: skewX(-20deg);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.custom-button span {
+  display: inline-block;
+  transform: skewX(20deg); /* لإلغاء الميل داخل الزر */
+}
 
 /* Animation pour la section Acceuil */
 @keyframes leftToRight {
@@ -109,6 +163,7 @@ body {
   height: 100vh;
   width: 100%;
   overflow: hidden;
+
 }
 
 .background-swiper {

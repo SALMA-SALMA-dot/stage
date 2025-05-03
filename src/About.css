@@ -5,14 +5,14 @@
   }  
 :root {
     --color-white: #fff;
-    --color-blue: rgb(24, 214, 214);
+    --color-blue:#0091D4;
     --color-black: black;
     --font-test: "Montserrat", sans-serif;
   }
 .banner { 
     position: relative;
     width: 100%;
-    height: 30vh;
+    height: 50vh;
     padding: 60px 20px;
     text-align: center;
     color: white;
@@ -32,24 +32,26 @@
 }
 
 .content {
-    position: relative;
-    z-index: 1;
-    color: black;
-    text-align: center;
-    padding-right: 20px;
-    width: 100%;
+  position: relative;
+  z-index: 1;
+  color: black;
+  text-align: center;
+  padding-right: 20px;
+  width: 100%;
 }
 
 .banner h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+  font-size: 36px;
+  margin-bottom: 10px;
+  margin-top: 120px; /* ⬅️ كتزيدهم يهبطو */
 }
 
 .banner h2 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-.text {
+ 
+  .text {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
@@ -59,13 +61,17 @@
 .text h1 {
     font-size: 28px;
     font-weight: bold;
-    color: rgb(24, 214, 214);
+    color:#0091D4 ;
 }
 
 .text p {
-    font-size: 16px;
-    line-height: 2;
+  font-size: 16px;
+  line-height: 2;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
+
 
 /* Style du conteneur contenant l'image et le texte */
 .why-morocco-section {
@@ -106,7 +112,7 @@
 }
 
 .why-morocco-text span {
-  color: rgb(24, 214, 214);
+  color: #0091D4;
   font-weight: bold;
 }
 
@@ -139,7 +145,7 @@
 .business-setup-text h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: rgb(24, 214, 214);
+  color: #0091D4;
 }
 
 .business-setup-text p {
@@ -188,7 +194,7 @@
   .servitium-button {
     font-size: 32px;
     font-weight: bold;
-    color:rgb(24, 214, 214);
+    color:#0091D4;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -199,7 +205,7 @@
   
   .servitium-button:focus,
   .servitium-button:active {
-    outline: 3px solid rgb(24, 214, 214);
+    outline: 3px solid #0091D4;
     outline-offset: 4px;
   }
   
@@ -208,7 +214,7 @@
     display: block;
     width: 60%;
     height: 3px;
-    background-color: rgb(24, 214, 214);
+    background-color: #0091D4;
     margin: 8px auto 0 auto;
   }
   .key-figures-container {
@@ -282,8 +288,8 @@
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
-    border: 2px solid rgb(24, 214, 214);
-    color:rgb(24, 214, 214) ;
+    border: 2px solid #0091D4;
+    color:#0091D4 ;
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;

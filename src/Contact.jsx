@@ -1,17 +1,6 @@
 import React, { useState } from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './ContactFrom.css';
-
-const containerStyle = {
-  width: '100%',
-  height: '400px',
-};
-
-const center = {
-  lat: 33.9716,
-  lng: -6.8498,
-};
 
 function App() {
   const [formData, setFormData] = useState({
@@ -45,16 +34,19 @@ function App() {
 
   return (
     <div>
-      {/* 🗺️ Carte Google */}
-      
-      <LoadScript googleMapsApiKey="">
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={12}
+      {/* 🗺️ Carte Google sans API key */}
+      <div style={{ width: '100%', height: '400px', marginBottom: '20px' }}>
+        <iframe
+          title="Google Map Servitium"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105884.89453126324!2d-6.939665370299462!3d33.969333765464505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b871f50c5c1%3A0x7ac946ed7408076b!2sRabat!5e0!3m2!1sfr!2sma!4v1746231589727!5m2!1sfr!2sma"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         />
-      </LoadScript>
-
+      </div>
 
       {/* 📨 Formulaire + infos */}
       <div className="contact-container">
@@ -103,10 +95,9 @@ function App() {
 
           <div className="captcha">
             <ReCAPTCHA
-              sitekey="VOTRE_CLÉ_SITE_PUBLIC" // Remplace avec ta vraie clé
+              sitekey="6LcabywrAAAAAI9GHFoDaqW2_yJ_0Mp6hxEBms11" // Remplace avec ta vraie clé
               onChange={handleCaptchaChange}
             />
-          
           </div>
 
           <button type="submit">Envoyer</button>
@@ -132,6 +123,9 @@ function App() {
 }
 
 export default App;
+
+
+
 
 
 

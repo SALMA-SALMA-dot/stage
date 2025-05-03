@@ -3,40 +3,40 @@
   padding: 0;
   box-sizing: border-box;
 }
-.Services {
+.packs-banner-wrapper {
   position: relative;
-  background-image: url('/public/assets/pexels-fauxels-3183171.jpg');
-  background-repeat: no-repeat;            /* إضافة خصائص التكرار */
-  background-position: center center;      /* تحديد المركز للصورة */
-  background-size: cover;                  /* تغطي كامل المساحة */
-  background-attachment: scroll;           /* تثبيت الصورة عند التمرير */
-  height: 40vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 30px;
+  height: 50vh;
+  overflow: hidden;
 }
 
-.Services {
+.packs-banner-image {
   position: relative;
+  height: 100%;
   background-image: url('/public/assets/pexels-fauxels-3183171.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  height: 40vh;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
   display: flex;
-  align-items: flex-end;       
-  justify-content: flex-end;  
+  align-items: flex-end;
   padding: 30px;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  z-index: 2;
 }
 
-.Services h1 {
-  font-size: 40px;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
+.packs-banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0091D4;
+  clip-path: polygon(0 85%, 100% 85%, 100% 100%, 0 100%);
+  z-index: 1;
 }
+
+
 .services-section{
   padding: 60px 40px;
   background-color: #ffffff;
@@ -90,7 +90,7 @@
 }
 
 .icon-wrapper:hover {
-  background-color: rgb(24, 214, 214);  
+  background-color: #0091D4;  
   border-color: white;
   color: white; 
   transform: scale(1.1);  
@@ -102,14 +102,14 @@
   
 .service h3 {
     font-size: 18px;
-    color: #333;
+    color: black;
     font-weight: 600;
     margin-bottom: 10px;
   }
   
   .service .description {
     font-size: 14px;
-    color: #555;
+    color: black;
     line-height: 1.6;
     white-space: pre-line;
   }
@@ -121,7 +121,7 @@
   
   .service .list li {
     font-size: 14px;
-    color: #444;
+    color:black;
     margin-bottom: 8px;
 }
 .travaux-container {
@@ -137,7 +137,7 @@
 .travaux-title {
   font-size: 40px;
   font-weight: 700;
-  color:rgb(24, 214, 214);
+  color:#0091D4;
   margin-right: 60px;
   border-left: 4px solid black;
   padding-left: 20px;
@@ -178,7 +178,7 @@
 
 .icon-1 {
   font-size: 50px;
-  color: rgb(24, 214, 214);
+  color: #0091D4;
   margin-bottom: 10px;
 }
 
@@ -230,7 +230,7 @@
 
 .icon-1 {
   font-size: 50px;
-  color: rgb(24, 214, 214);
+  color: #0091D4;
   margin-bottom: 10px;
 }
 
@@ -242,7 +242,7 @@
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
-  color: rgb(24, 214, 214);
+  color: #0091D4;
 
 }
 

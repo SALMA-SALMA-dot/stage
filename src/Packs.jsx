@@ -75,65 +75,69 @@ const frais = [
   { description: 'Annonce au journal légal', montant: '300Dh' },
   { description: 'Annonce au bulletin officiel', montant: '600Dh' },
 ];
+
 export default function Packs() {
   return (
     <>
-      {/* Section avec image de fond */}
-      <div className="packs">
-        <h1>Nos Pack</h1>
-      </div>
-        
-      {/* Section Offres + Bannière */}
-      
-        {/* Petit bandeau ou texte en rouge */}
-        
+<div className="section-banner-wrapper">
+  <div className="section-diagonal">
+    Nos Packs
+  </div>
+  <div className="section-blue"></div>
+</div>
 
-        <section className="offres">
-          <h2 className="offres-title">Nos Offres</h2>
-          <div className="offres-grid">
-            {offresData.map((offre, index) => (
-              <div
-                key={index}
-                className={`offre-card ${offre.popular ? 'popular' : ''}`}
-              >
-                <h3>{offre.title}</h3>
-                <p className="offre-price">
-                  {offre.price && (
-                    <>
-                      <span className="currency">Dh</span>
-                      <span className="amount">{offre.price}</span>
-                    </>
-                  )}
-                  <span className="unit">{offre.unit}</span>
-                </p>
-                <ul className="offre-features">
-                  {offre.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
-                  ))}
-                </ul>
-                <a href=""><button className="offre-button">{offre.buttonText}</button></a>
-              </div>
-            ))}
-          </div>
-        </section>
-   
-        <div className="frais-administratifs-container">Hors frais de création</div>
-      {/* Section Frais Administratifs */}
-      <section className="frais-container">
-        <h2 className="frais-title">Frais Administratifs</h2>
-        <ul className="frais-liste">
-          {frais.map((item, index) => (
-            <li key={index} className="frais-item">
-              <span className="description">{item.description}</span>
-              <span className="montant">{item.montant}</span>
-            </li>
+      <section className="offres">
+        <h2 className="offres-title">Nos Offres</h2>
+
+        <div id="pricing-table" className="clear">
+          {offresData.map((offre, index) => (
+            <div
+              key={index}
+              className={`plan ${offre.popular ? 'popular' : ''}`}
+              id={offre.popular ? 'most-popular' : ''}
+            >
+              {offre.popular && <div className="badge-populaire">Populaire</div>}
+
+              <h3>
+                {offre.title}
+                <span>
+                  {offre.price ? `Dh ${offre.price}` : ''}
+                  <small>{offre.unit}</small>
+                </span>
+              </h3>
+
+              <a className="signup" href="">{offre.buttonText}</a>
+
+              <ul>
+                {offre.features.map((feature, i) => (
+                  <li key={i}>{feature}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
+
+        <div className="frais-administratifs-container">Hors frais de création</div>
+
+        <section className="frais-container">
+          <h2 className="frais-title">Frais Administratifs</h2>
+          <ul className="frais-liste">
+            {frais.map((item, index) => (
+              <li key={index} className="frais-item">
+                <span className="description">{item.description}</span>
+                <span className="montant">{item.montant}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
       </section>
     </>
-    
   );
 }
+
+
+
+
 
 
 

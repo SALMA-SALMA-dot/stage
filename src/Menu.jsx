@@ -21,7 +21,9 @@ export default function Menu() {
         </div>
 
         <div className="bottom-bar">
-          <div className="logo">SERVITIUM</div>
+        <div className="logo">
+        <img src="/assets/Servitium (1).png" alt="Rappel Icon" ></img>
+        </div>
 
           {/* الزر لفتح/إغلاق القائمة */}
           <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
@@ -44,5 +46,7 @@ export default function Menu() {
     </>
   );
 }
+
+
 
 

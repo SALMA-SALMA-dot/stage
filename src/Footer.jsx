@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-column">
-          <img src="/logo-footer.png" alt="Servitium Logo" className="logo" />
+          <img src="/assets/Servitium (1).png" alt="Servitium Logo" className="logo" />
           <p>APPT N°7 IMM N°206 AVENUE MLY ALI CHERIF</p>
           <p>MASSIRA 1 - TEMARA</p>
           <p>(+212) 5 37 60 16 62</p>

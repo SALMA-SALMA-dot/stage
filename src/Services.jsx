@@ -146,9 +146,14 @@ export default function Services() {
 
   return (
     <div>
-      <div className="Services">
-        <h1>Nos Services</h1>
-      </div>
+      <div className="packs-banner-wrapper">
+  <div className="packs-banner-image">
+    Nos Services 
+  </div>
+  <div className="packs-banner-overlay"></div>
+</div>
+
+  
 
       <section className="services-section">
         <h2 className="services-title">NOS SERVICES</h2>
@@ -191,7 +196,6 @@ export default function Services() {
     </div>
   );
 }
-
 
 
 

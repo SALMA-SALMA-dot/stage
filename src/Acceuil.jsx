@@ -7,7 +7,153 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Acceuil.css";
 
-// Testimonials Component
+// Composant Slider
+const Slider = () => {
+  const slides = [
+    {
+      image: "/assets/formation.jpg",
+      title: "VOTRE ENTREPRISE",
+      subtitle: "CLÉ EN MAIN",
+      paragraph: "Concrétisez vos projets",
+      paragraphSpan: "au Maroc",
+      buttonText: "NOS DERNIÈRES OFFRES",
+      buttonColor: "#0091D4",
+      buttonLink: "/Packs",
+    },
+    {
+      image: "/assets/comptabilite.jpg",
+      title: "NOS SERVICES",
+      subtitle: "DE QUALITÉ",
+      paragraph: "Nous vous accompagnons",
+      paragraphSpan: "partout au Maroc",
+      buttonText: "Nos services",
+      buttonColor: "#0091D4",
+      buttonLink: "/Services",
+    },
+    {
+      image: "/assets/pexels-thebstudio-947845.jpg",
+      title: "Découvrez Nos",
+      subtitle: "Meilleures Offres",
+      paragraph: "Créez votre entreprise à partir de",
+      paragraphSpan: "3500 Dh*",
+      buttonText: "NOS PACKS",
+      buttonColor: "#0091D4",
+      buttonLink: "/Packs",
+      type: "custom",
+    },
+  ];
+
+  return (
+    <div className="Acceuil">
+      <Swiper
+        modules={[Pagination, Navigation, Autoplay]}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 5000 }}
+        pagination={{ clickable: true }}
+        className="background-swiper"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            {slide.type === "custom" ? (
+              <div
+                className="custom-slide"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              >
+                <div className="custom-overlay">
+                  <div className="custom-left-text">
+                    <h2>
+                      {slide.title} <strong>{slide.subtitle}</strong>
+                    </h2>
+                    <p>
+                      {slide.paragraph} <strong>{slide.paragraphSpan}</strong>
+                    </p>
+                  </div>
+                  <Link to={slide.buttonLink}>
+                    <button className="custom-button">
+                      <span>{slide.buttonText}</span>
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <div
+                className="background-slide"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              >
+                <div className="Acceuil-overlay">
+                  <h1>
+                    {slide.title} <br />
+                    <span className="Acceuil-sp">{slide.subtitle}</span>
+                  </h1>
+                  <p>
+                    {slide.paragraph} <br />
+                    <span className="Acceuil-span">{slide.paragraphSpan}</span>
+                  </p>
+                  <Link to={slide.buttonLink}>
+                    <button
+                      className="main-btn"
+                      style={{ backgroundColor: slide.buttonColor }}
+                    >
+                      {slide.buttonText}
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
+// Cards Component
+export function Cards() {
+  return (
+    <div className="cards-container">
+      <div className="card">
+        <div className="card-icon">
+          <img src="/assets/rappel-icon.svg" alt="Devis Icon" />
+        </div>
+        <Link to="/Contact">
+        <div className="card-content">
+          <h3>Demander un Devis</h3>
+          <p>Demandez Votre Devis 100% Gratuit !</p>
+        </div>
+        </Link>
+      </div>
+      <div className="card">
+        <div className="card-icon">
+          <img src="/assets/rappel-icon.svg" alt="Rappel Icon" />
+        </div>
+        <Link to="/Contact">
+        <div className="card-content">
+          <h3>Demander un Rappel</h3>
+          <p>Un de nos agents prendra contact avec vous dans les 24h</p>
+        </div>
+        </Link>  
+      </div>
+     
+     
+      <div className="card">
+      <Link to="/Packs">
+        <div className="card-icon">
+          <img src="/assets/packs-icon.svg" alt="Packs Icon" />
+        </div>
+        <div className="card-content">
+          <h3>Télécharger Nos Packs</h3>
+          <p>Téléchargez nos Packs & dernières offres de service</p>
+        </div>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+
+
+// Composant Testimonials
 export const Testimonials = () => {
   const testimonials = [
     {
@@ -29,7 +175,7 @@ export const Testimonials = () => {
       title: "CFO, Perfect Inc.",
       text: "Credibly innovate granular internal or 'organic' sources whereas high standards in web readiness.",
       stars: 5,
-      image: "https://via.placeholder.com/100",
+      image: "/assets/images (17).jpeg",
     },
   ];
 
@@ -70,42 +216,7 @@ export const Testimonials = () => {
   );
 };
 
-// Cards Component
-export function Cards() {
-  return (
-    <div className="cards-container">
-      <div className="card">
-        <div className="card-icon">
-          <img src="/assets/formation.jpg" alt="Devis Icon" />
-        </div>
-        <div className="card-content">
-          <h3>Demander un Devis</h3>
-          <p>Demandez Votre Devis 100% Gratuit !</p>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-icon">
-          <img src="/assets/rappel-icon.svg" alt="Rappel Icon" />
-        </div>
-        <div className="card-content">
-          <h3>Demander un Rappel</h3>
-          <p>Un de nos agents prendra contact avec vous dans les 24h</p>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-icon">
-          <img src="/assets/packs-icon.svg" alt="Packs Icon" />
-        </div>
-        <div className="card-content">
-          <h3>Télécharger Nos Packs</h3>
-          <p>Téléchargez nos Packs & dernières offres de service</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Main Component Acceuil
+// Composant principal
 export default function Acceuil() {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -134,67 +245,9 @@ export default function Acceuil() {
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const slides = [
-    {
-      image: "/assets/formation.jpg",
-      title: "VOTRE ENTREPRISE",
-      subtitle: "CLÉ EN MAIN",
-      paragraph: "Concrétisez vos projets",
-      paragraphSpan: "au Maroc",
-    },
-    
-    {
-        image: "/assets/comptabilite.jpg",
-        title: "NOS SERVICES",
-        subtitle: "DE QUALITÉ",
-        paragraph: "Nous vous accompagnons",
-        paragraphSpan: "partout au Maroc",
-      },
-  
-    {
-      image: "/assets/pexels-thebstudio-947845.jpg",
-      title: "DÉVELOPPEZ VOTRE ACTIVITÉ",
-      subtitle: "AVEC NOUS",
-      paragraph: "Bâtissez votre avenir",
-      paragraphSpan: "en toute confiance",
-    },
-  ];
-
   return (
     <>
-      <div className="Acceuil">
-        <Swiper
-          modules={[Pagination, Navigation, Autoplay]}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 5000 }}
-          pagination={{ clickable: false }}
-          className="background-swiper"
-        >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="background-slide"
-                style={{ backgroundImage: `url(${slide.image})` }}
-              >
-                <div className="Acceuil-overlay">
-                  <h1>
-                    {slide.title} <br />
-                    <span className="Acceuil-sp">{slide.subtitle}</span>
-                  </h1>
-                  <p>
-                    {slide.paragraph} <br />
-                    <span className="Acceuil-span">{slide.paragraphSpan}</span>
-                  </p>
-                  <Link to="/Packs">
-                    <button className="main-btn">NOS DERNIÈRES OFFRES</button>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      <Slider />
 
       <div className="Acceuil-1">
         <div className="Acceuil-1-content">
@@ -202,13 +255,12 @@ export default function Acceuil() {
             Découvrez le pack <span className="span">Premium</span> à 4500 DH TTC
           </h2>
           <p>
-            Création et domiciliation de votre société pour 24 mois à 4500 DH TTC,
-            hors charges de création.
+            Création et domiciliation de votre société pour 24 mois à 4500 DH TTC, hors charges de création.
           </p>
           <div className="buttons">
             <button
               className="button-1"
-              onClick={() => window.location.href = '/newsletter'}
+              onClick={() => (window.location.href = "/newsletter")}
             >
               REJOIGNEZ NOTRE NEWSLETTER
             </button>
@@ -221,7 +273,7 @@ export default function Acceuil() {
 
       <div className="services-container">
         <h2>Nos Offres de Services</h2>
-        <p>Servitium propose une panoplie de services, notamment:</p>
+        <p>Servitium propose une panoplie de services, notamment :</p>
       </div>
 
       <div className="search-section">
@@ -254,51 +306,35 @@ export default function Acceuil() {
       <div className="services-container-cl">
         <div className="services-container-1">
           <p>
-            Nous offrons une gamme complète de services pour{" "}
-            <span className="highlight">tous les types d'entreprises.</span>
+            Nous offrons une gamme complète de services pour <span className="highlight">tous les types d'entreprises.</span>
           </p>
-
           <ul className="services-list-1">
             <li>✔ TRAVAUX DE COMPTABILITÉ</li>
             <li>✔ COMMUNICATION</li>
             <li>✔ FORMATION & SERVICES DIVERS</li>
           </ul>
-
           <Link to="/Services">
-            <button className="services-btn" aria-label="Voir tous nos services">
-              Nos Services
-            </button>
+            <button className="services-btn">Nos Services</button>
           </Link>
         </div>
 
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           className="services-slider"
         >
           <SwiperSlide>
-            <img
-              src="/assets/formation.jpg"
-              alt="Formation - Développement professionnel"
-              loading="lazy"
-            />
+            <img src="/assets/formation.jpg" alt="Formation" />
           </SwiperSlide>
           <SwiperSlide>
-            <img
-              src="/assets/comptabilite.jpg"
-              alt="Comptabilité - Gestion d'entreprise"
-              loading="lazy"
-            />
+            <img src="/assets/comptabilite.jpg" alt="Comptabilité" />
           </SwiperSlide>
           <SwiperSlide>
-            <img
-              src="/assets/comunication.jpg"
-              alt="Communication - Stratégies de marketing"
-              loading="lazy"
-            />
+            <img src="/assets/comunication.jpg" alt="Communication" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -327,7 +363,8 @@ export default function Acceuil() {
             votre activité.
           </p>
         </div>
-      </div>
+        </div>
+
 
       <Cards />
       <Testimonials />
@@ -340,4 +377,7 @@ export default function Acceuil() {
     </>
   );
 }
+
+
+
 
